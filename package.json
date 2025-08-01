@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "main": "server.js",
+  "workspaces": [
+    "react-portfolio",
+    "serverBend"
+  ],
+  "scripts": {
+  "start": "node serverBend/server/server.js",
+  "dev": "npm-run-all --parallel start:react-portfolio start:server",
+  "start:react-portfolio": "npm --prefix react-portfolio run dev",
+  "start:server": "npm --prefix serverBend run dev",
+  "build": "npm-run-all --parallel build:react-portfolio",
+  "build:react-portfolio": "npm --prefix react-portfolio run build",
+  "build:server": "echo \"No server build step necessary\""
+},
+
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "react-router-dom": "^7.6.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "name": "portfolobackend2",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CYRUSMAINA/newPortfolio-Project.git"
+  },
+  "keywords": [],
+  "author": "cyrusmaina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CYRUSMAINA/newPortfolio-Project.git/issues"
+  },
+  "homepage": "https://github.com/CYRUSMAINA/newPortfolio-Project#readme",
+  "description": ""
+}
