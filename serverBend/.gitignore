@@ -1,1 +1,30 @@
 node_modules
+# Ignore all node_modules in subfolders
+node_modules/
+react-portfolio/node_modules/
+serverBend/node_modules/
+
+# Ignore Vite/React build outputs
+react-portfolio/dist/
+dist/
+
+# Ignore env files
+.env
+.env.local
+
+# Ignore log files
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Vite/React caches
+.vite
+.vite-cache
+.react-cache
+
+# PowerPoint/Office temp files (just in case)
+~$*.pptx
+*.tmp

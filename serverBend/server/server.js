@@ -18,7 +18,7 @@ import dotenv from 'dotenv';
 
 //create dirname for equivalent to ES modules
 const _filename = fileURLToPath(import.meta.url);
-const _dirname =path.dirname(_filename);
+const __dirname =path.dirname(_filename);
 
 // Load environment variables
 dotenv.config();
@@ -52,11 +52,12 @@ app.use('/api/auth',authRoutes);
 app.use('/api/data', (req, res) => {
   res.status(200).json({ message: 'Welcome to my portfolio' });
 });
-app.use(express.static(path.join(_dirname, '../react-portfolio/dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(_dirname, '../react-portfolio/dist/index.html'));
-});
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../react-portfolio/dist')));
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../react-portfolio/dist', 'index.html'));
+  });
+}
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
